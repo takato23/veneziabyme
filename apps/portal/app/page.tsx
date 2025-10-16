@@ -34,6 +34,53 @@ const roadmap = [
   }
 ];
 
+const foundations = [
+  {
+    title: "API NestJS",
+    description:
+      "Servicios iniciales para salud, tenants, catálogos y compliance listos para iterar y conectar con bases de datos.",
+    endpoints: [
+      "GET /api/v1/health",
+      "GET /api/v1/tenants",
+      "GET /api/v1/catalog/:tenantId/menu",
+      "GET /api/v1/compliance/status"
+    ]
+  },
+  {
+    title: "Portal Next.js",
+    description:
+      "Layout corporativo document-first que comunica roadmap, bases técnicas y próximos pasos de entrega.",
+    endpoints: ["Backoffice web", "Documentación integrada", "Estrategia omnicanal"]
+  },
+  {
+    title: "Documentación viva",
+    description:
+      "Especificaciones, PRD y roadmap se versionan junto al código para mantener alineado al equipo.",
+    endpoints: ["docs/01-especificacion-tecnica-inicial.md", "docs/02-plan-producto-y-roadmap.md", "docs/03-prd.md"]
+  }
+];
+
+const executionSteps = [
+  {
+    label: "Homologación fiscal AR/CL/BR",
+    status: "En curso",
+    owner: "Compliance",
+    due: "Nov 2025"
+  },
+  {
+    label: "PoC Pagos Mercado Pago + modo offline",
+    status: "En curso",
+    owner: "Pagos",
+    due: "Dic 2025"
+  },
+  {
+    label: "Pipelines CDC → Delta Lake",
+    status: "Planificado",
+    owner: "Datos",
+    due: "Ene 2026"
+  }
+];
+
 export default function HomePage() {
   return (
     <div className="space-y-10">
@@ -74,6 +121,33 @@ export default function HomePage() {
 
       <section>
         <header>
+          <h2>Bases técnicas disponibles</h2>
+          <p>
+            Primeros módulos implementados para acelerar el desarrollo iterativo, integrando controladores fiscales, catálogos y
+            gestión multi-tenant.
+          </p>
+        </header>
+        <div className="foundation-grid">
+          {foundations.map((foundation) => (
+            <article key={foundation.title} className="space-y-4">
+              <div>
+                <h3 className="text-lg font-semibold text-ink">{foundation.title}</h3>
+                <p>{foundation.description}</p>
+              </div>
+              <ul className="endpoint-list">
+                {foundation.endpoints.map((endpoint) => (
+                  <li key={endpoint} className="endpoint-pill">
+                    {endpoint}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section>
+        <header>
           <h2>Primeros pasos del desarrollo</h2>
           <p>
             Este portal Next.js servirá como base del backoffice corporativo, integrado con microservicios
@@ -85,6 +159,30 @@ export default function HomePage() {
           Próximamente incluiremos dashboards operativos, gestión de catálogos multi-país y acceso
           gobernado por tenant. Los documentos en <code>docs/</code> se mantendrán como fuente de verdad.
         </p>
+      </section>
+
+      <section>
+        <header>
+          <h2>Próximas actividades en ejecución</h2>
+          <p>
+            Seguimos el enfoque documentation-first; cada actividad tiene responsables claros y fechas objetivo que se reflejarán
+            en los PR y tableros de entrega.
+          </p>
+        </header>
+        <ul className="execution-list">
+          {executionSteps.map((step) => (
+            <li key={step.label} className="execution-card">
+              <div className="execution-header">
+                <span className="execution-status">{step.status}</span>
+                <span className="execution-due">{step.due}</span>
+              </div>
+              <h3>{step.label}</h3>
+              <p>
+                Equipo responsable: <strong>{step.owner}</strong>
+              </p>
+            </li>
+          ))}
+        </ul>
       </section>
     </div>
   );

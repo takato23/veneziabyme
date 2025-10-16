@@ -18,6 +18,7 @@ Venezia By Me es un SaaS multi-tenant orientado a cadenas de heladerías que ini
 | [`docs/01-especificacion-tecnica-inicial.md`](docs/01-especificacion-tecnica-inicial.md) | Arquitectura lógica/física, stack tecnológico, integraciones fiscales y adquirentes, datos, IA, seguridad y despliegue. |
 | [`docs/02-plan-producto-y-roadmap.md`](docs/02-plan-producto-y-roadmap.md) | Objetivos estratégicos, roadmap por fases y epics iniciales. |
 | [`docs/03-prd.md`](docs/03-prd.md) | Definición de producto (problema, usuarios, casos de uso, KPIs y criterios de aceptación). |
+| [`docs/04-bases-desarrollo-app.md`](docs/04-bases-desarrollo-app.md) | Cimientos técnicos iniciales de API, portal y convenciones de seguimiento. |
 | [`docs/adr/`](docs/adr/) | Decisiones arquitectónicas (incluye plantilla y ADRs aprobadas). |
 | [`docs/annex/`](docs/annex/) | Resúmenes normativos, checklists de homologación e institucionalización de prácticas docs-as-code. |
 
